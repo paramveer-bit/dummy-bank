@@ -28,7 +28,10 @@ export default function Component() {
     const token = searchParams.get("token") || 0;
     try {
       const res = await axios.post("http://13.60.167.45:3009/hdfcWebhook",{token:token, user_identifier:Number(uid),amount:Number(amount)})
+      const res2 = await axios.post("https://13.60.167.45:3009/hdfcWebhook",{token:token, user_identifier:Number(uid),amount:Number(amount)})
+
       console.log(res)
+      console.log(res2)
       if(res.data.message==="Invalid token"){
         toast({
           title: 'Invalid Token',
